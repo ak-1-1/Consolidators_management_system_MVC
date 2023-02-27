@@ -1,0 +1,29 @@
+@model IEnumerable<flight_inventory.Models.LoginAwa>
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+        @foreach (var i in Model)
+        {
+            
+            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+            <div class="card">
+                <div class="d-flex justify-content-between p-3">
+                <p class="lead mb-0">Username - @i.Username</p>
+            </div>
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                class="card-img-top" alt="User" />
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                <h5 class="mb-0">User-Id - @i.Userid</h5>
+                <h5 class="text-dark mb-0">@i.Phonenumber</h5>
+            </div>
+            </div>
+            </div>
+            </div>      
+        }
+      
+    </div>
+  </div>
+  <a asp-action="showflight"><button type="button" class="btn btn-outline-primary">Back</button></a>
+</section>

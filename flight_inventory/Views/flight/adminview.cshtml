@@ -1,0 +1,41 @@
+@model IEnumerable<flight_inventory.Models.Flightawa>
+
+
+
+<h4 align="right"><a asp-action="addproducts"><button type="button" class="btn btn-danger">Add Tickets</button></a></h4>
+
+  <div class="form-group">
+        <form align="left" asp-action="Searchflight">
+            <input type=text name="keyword" id="keyword" placeholder="Search username here">
+
+            <input type=submit value="Search" class="btn btn-secondary"/>
+        </form>
+    </div>  
+    <table class="table">
+        <tr>
+            <th>Txn-id</th>
+            <th>User-name</th>
+            <th>From</th>
+            <th>To</th>
+            <th># of Tickets</th>
+            <th>Date of journey</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Uid</td>
+                <td>@item.Uname</td>
+                <td>@item.Jfrom</td>
+                <td>@item.Jto</td>
+                <td>@item.Nticket</td>
+                <td>@item.Doj</td>
+                <td><a asp-action="Edit" asp-route-id="@item.Uid"><button type="button" class="btn btn-outline-primary">Edit</button></a></td>
+                <td><a asp-action="Details" asp-route-id="@item.Uid"><button type="button" class="btn btn-outline-primary">More info</button></a></td>
+                <td><a asp-action="Delete" asp-route-id="@item.Uid"><button type="button" class="btn btn-outline-primary">Delete record</button></a></td>
+            </tr>
+        }
+        <tr>
+            <td><a asp-action="showuserinfo"><button type="button" class="btn btn-danger">Show all user data</button></a></td>
+        </tr>
+    </table>
+    

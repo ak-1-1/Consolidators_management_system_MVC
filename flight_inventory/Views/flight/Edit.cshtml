@@ -1,0 +1,62 @@
+@model flight_inventory.Models.Flightawa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 align="center" color="blue">Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Uid" class="control-label"></label>
+                <input asp-for="Uid" class="form-control" />
+                <span asp-validation-for="Uid" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="Uname" class="control-label"></label>
+                <input asp-for="Uname" class="form-control" />
+                <span asp-validation-for="Uname" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Jfrom" class="control-label">Journey from</label>
+                <input asp-for="Jfrom" class="form-control" />
+                <span asp-validation-for="Jfrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jto" class="control-label">Journey to</label>
+                <input asp-for="Jto" class="form-control" />
+                <span asp-validation-for="Jto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nticket" class="control-label"># of tickets</label>
+                <input asp-for="Nticket" class="form-control" />
+                <span asp-validation-for="Nticket" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doj" class="control-label">Date of journey</label>
+                <input asp-for="Doj" class="form-control" />
+                <span asp-validation-for="Doj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cid" class="control-label">Company name</label>
+                @*<input asp-for="Cid" class="form-control" />*@
+                <select asp-for="Cid" asp-items="@ViewBag.Companyawas"></select>
+                <span asp-validation-for="Cid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="showflight"><button type="button" class="btn btn-outline-primary">Back</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
